@@ -11,11 +11,10 @@ const Nav = () => {
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {
-    const setupProviders = async () => {
-      const response = await getProviders();
-      setProviders(response);
-    };
-    setupProviders();
+    (async () => {
+      const res = await getProviders();
+      setProviders(res);
+    })();
   }, []);
 
   return (
@@ -67,6 +66,7 @@ const Nav = () => {
         )}
       </div>
       {/* Mobile Navigation */}
+      
       <div className="sm:hidden relative">
         {session?.user ? (
           <div className="flex">
