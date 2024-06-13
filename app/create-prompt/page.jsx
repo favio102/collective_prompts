@@ -10,11 +10,13 @@ const CreatePrompt = () => {
   const { data: session } = useSession();
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({ prompt: "", tag: "" });
+
   const CreatePrompt = async (e) => {
     e.preventDefault();
     setSubmitting(true);
+
     try {
-      const response = await fetch("api/prompt/new", {
+      const response = await fetch("/api/prompt/new", {
         method: "POST",
         body: JSON.stringify({
           prompt: post.prompt,
