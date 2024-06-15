@@ -3,7 +3,7 @@
 import Form from "@components/Form";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const CreatePrompt = () => {
   const router = useRouter();
@@ -11,13 +11,16 @@ const CreatePrompt = () => {
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({ prompt: "", tag: "" });
 
-  const CreatePrompt = async (e) => {
+  const createPrompt = async (e) => {
     e.preventDefault();
     setSubmitting(true);
 
     try {
       const response = await fetch("/api/prompt/new", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           prompt: post.prompt,
           userId: session?.user.id,
@@ -26,6 +29,8 @@ const CreatePrompt = () => {
       });
       if (response.ok) {
         router.push("/");
+      } else {
+        console.error("Failed to create prompt:", response.statusText);
       }
     } catch (error) {
       console.log("There is the following error: ", error.message);
@@ -33,13 +38,14 @@ const CreatePrompt = () => {
       setSubmitting(false);
     }
   };
+
   return (
     <Form
       type="Create"
       post={post}
       setPost={setPost}
       submitting={submitting}
-      handleSubmit={CreatePrompt}
+      handleSubmit={createPrompt}
     />
   );
 };
