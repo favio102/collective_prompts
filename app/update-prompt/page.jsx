@@ -1,12 +1,12 @@
 "use client";
 
 import Form from "@components/Form";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const EditPrompt = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
   const promptId = searchParams.get("id");
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({ prompt: "", tag: "" });
@@ -24,7 +24,7 @@ const EditPrompt = () => {
     e.preventDefault();
     setSubmitting(true);
 
-    if(!promptId) return alert('Prompt ID not found!!')
+    if (!promptId) return alert("Prompt ID not found!!");
 
     try {
       const response = await fetch(`/api/prompt/${promptId}`, {
@@ -40,7 +40,7 @@ const EditPrompt = () => {
 
       if (response.ok) {
         router.push("/");
-      } 
+      }
     } catch (error) {
       console.log("There is the following error: ", error.message);
     } finally {
