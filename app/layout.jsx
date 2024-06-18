@@ -3,7 +3,7 @@ import "@styles/global.css";
 import Provider from "@components/Provider";
 
 export const metadata = {
-  title: "PrompterExt",
+  title: "Collective Prompt",
   description: "Discover & Share AI Prompts",
 };
 

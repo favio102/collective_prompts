@@ -21,13 +21,17 @@ const Nav = () => {
     <nav className="flex-between w-full mb-16 pt-3">
       <Link href="/" className="flex gap-2 flex-center">
         <Image
-          src="/assets/images/logo.svg"
+          src="/assets/images/logo2.png"
           className="object-contain"
           alt="logo"
-          width={30}
-          height={30}
+          width={100}
+          height={100}
         />
-        <p className="logo_text">PrompterExt</p>
+        <p className="logo_text">
+          <span className="blue_gradient">Collective</span>
+          <br />
+          <span style={{color: 'black'}}>Prompts</span>
+        </p>
       </Link>
       {/* Desktop Navigation */}
       <div className="sm:flex hidden">
@@ -66,7 +70,7 @@ const Nav = () => {
         )}
       </div>
       {/* Mobile Navigation */}
-      
+
       <div className="sm:hidden relative">
         {session?.user ? (
           <div className="flex">
