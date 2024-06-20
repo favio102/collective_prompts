@@ -8,8 +8,8 @@ const Home = () => {
         <span className="blue_gradient text-center"> AI-Powered Prompts</span>
       </h1>
       <p className="desc text-center">
-        PrompterExt is an open-source AI prompting tool for modern world to
-        discover, create adn share creative prompts.
+        Collective Prompt is an open-source AI prompting tool for modern world
+        to discover, create and share creative prompts.
       </p>
       <Feed />
     </section>
