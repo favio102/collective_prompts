@@ -28,8 +28,7 @@ const Nav = () => {
           height={100}
         />
         <p className="logo_text">
-          <span className="blue_gradient">Collective</span>
-          <br />
+          <span className="blue_gradient">Collective </span>
           <span style={{color: 'black'}}>Prompts</span>
         </p>
       </Link>
