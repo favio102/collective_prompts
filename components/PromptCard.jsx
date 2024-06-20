@@ -42,8 +42,8 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
                 ? "/assets/icons/tick.svg"
                 : "/assets/icons/copy.svg"
             }
-            width={12}
-            height={12}
+            width={20}
+            height={20}
             alt="image"
           />
         </div>
@@ -57,19 +57,19 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         #{post.tag}
       </p>
       {session?.user.id === post.creator._id && pathName === "/profile" && (
-        <div className="mt-5 flex-center gap-4 border-t border-gray-100 pt-3">
-          <p
-            className="font-inter text-sm green_gradient cursor-pointer"
+        <div className="mt-0 flex-right gap-8 border-t border-gray-100 pt-3">
+          <button
+            className="bg-transparent hover:bg-blue-300 text-blue-900 cursor-pointer py-2 px-4 rounded-full"
             onClick={handleEdit}
           >
             Edit
-          </p>
-          <p
-            className="font-inter text-sm orange_gradient cursor-pointer"
+          </button>
+          <button
+            className="bg-transparent hover:bg-red-300 text-red-800 cursor-pointer py-2 px-4 rounded-full"
             onClick={handleDelete}
           >
             Delete
-          </p>
+          </button>
         </div>
       )}
     </div>
