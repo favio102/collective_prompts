@@ -56,7 +56,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
       >
         #{post.tag}
       </p>
-      {session?.user.id === post.creator._id && pathName === "/profile" && (
+      {session?.user.id === post.creator?._id && pathName === "/profile" && (
         <div className="mt-0 flex-right gap-8 border-t border-gray-100 pt-3">
           <button
             className="bg-transparent hover:bg-blue-300 text-blue-900 cursor-pointer py-2 px-4 rounded-full"
